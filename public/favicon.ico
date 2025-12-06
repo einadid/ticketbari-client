@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256">
+  <defs>
+    <!-- Background Gradient -->
+    <radialGradient id="bgGlow" cx="30%" cy="30%" r="100%">
+      <stop offset="0%" stop-color="#1e293b"/>
+      <stop offset="100%" stop-color="#020617"/>
+    </radialGradient>
+
+    <!-- Ticket Gradient -->
+    <linearGradient id="ticketGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#34d399"/>
+      <stop offset="100%" stop-color="#059669"/>
+    </linearGradient>
+
+    <!-- Soft glow -->
+    <filter id="softGlow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="6" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+
+    <!-- Glass highlight -->
+    <linearGradient id="glass" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="white" stop-opacity="0.35"/>
+      <stop offset="100%" stop-color="white" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+
+  <!-- App background -->
+  <rect width="256" height="256" rx="52" fill="url(#bgGlow)"/>
+
+  <!-- Glow base -->
+  <rect x="54" y="74" width="148" height="108" rx="26"
+        fill="url(#ticketGrad)" opacity="0.35"
+        filter="url(#softGlow)"/>
+
+  <!-- Ticket body -->
+  <path d="M54 78h148v28
+           c-14 0-14 44 0 44v28
+           H54v-28
+           c14 0 14-44 0-44V78z"
+        fill="url(#ticketGrad)"/>
+
+  <!-- Perforation -->
+  <line x1="128" y1="86" x2="128" y2="170"
+        stroke="#022c22"
+        stroke-width="4"
+        stroke-dasharray="7 8"/>
+
+  <!-- Glass top -->
+  <rect x="54" y="78" width="148" height="52" rx="26"
+        fill="url(#glass)"/>
+
+  <!-- Center Mark -->
+  <text x="128" y="150"
+        text-anchor="middle"
+        font-size="54"
+        font-family="Inter, Segoe UI, Arial"
+        font-weight="700"
+        fill="#ecfdf5">
+    TB
+  </text>
+</svg>
